@@ -1,13 +1,13 @@
 #include <iostream>
 
-void enterAnswer();
+void makeAnswer();
 void enterGuess();
 bool isCorrect();
 
 int main() {
 	bool done = false;
 
-    enterAnswer();
+    makeAnswer();
 
     while (!done) {
         enterGuess();

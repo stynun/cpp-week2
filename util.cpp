@@ -1,16 +1,24 @@
 #include <iostream>
+#include <cstdlib>
+#include <ctime>
 
 int answer[3], guess[3] = {0};
-int temp;
+int temp = 0;
 
-void enterAnswer() {
-    std::cout << "Enter a answer: ";
-    std::cin >> temp;
+void makeAnswer() {
+    while (temp < 100) {
+        srand(static_cast<unsigned int>(time(NULL))); 
+        temp = rand() % 1000;
+    }
+    
+    std::cout << "Answer is " << temp << std::endl;
+    
     answer[0] = temp / 100;
     temp %= 100;
     answer[1] = temp / 10;
     temp %= 10;
     answer[2] = temp;
+    
 }
 
 void enterGuess() {
