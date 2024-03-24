@@ -2,26 +2,28 @@
 #include <cstdlib>
 #include <ctime>
 
+void subChances();
+
 int answer[3], guess[3] = {0};
 int temp = 0;
+bool done = false;
 
 void makeAnswer() {
-    while (temp < 100) {
-        srand(static_cast<unsigned int>(time(NULL))); 
-        temp = rand() % 1000;
+    srand((unsigned)(time(NULL))); 
+    for (int i = 0; i < 3; i++) {    
+        answer[i] = rand() % 10;
+
+        for (int j = 0; j < i; j++) {
+            if (answer[i] == answer[j])
+                i--;
+        }
     }
-    
-    std::cout << "Answer is " << temp << std::endl;
-    
-    answer[0] = temp / 100;
-    temp %= 100;
-    answer[1] = temp / 10;
-    temp %= 10;
-    answer[2] = temp;
-    
+
 }
 
 void enterGuess() {
+    subChances();
+
     std::cout << "Enter a guess: ";
     std::cin >> temp;
     guess[0] = temp / 100;

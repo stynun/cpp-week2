@@ -1,6 +1,7 @@
 #include <iostream>
 
 void makeAnswer();
+void printChances();
 void enterGuess();
 bool isCorrect();
 
@@ -10,6 +11,7 @@ int main() {
     makeAnswer();
 
     while (!done) {
+        printChances();
         enterGuess();
         done = isCorrect();
     }

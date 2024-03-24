@@ -1,6 +1,7 @@
 #include <iostream>
 
 extern int answer[3], guess[3];
+int chances = 5;
 
 int strikes() {
     int count = 0;
@@ -36,8 +37,20 @@ bool isCorrect() {
         std::cout << "You win!";
         return true;
     }    
+    else if (chances == 0) {
+        std::cout << "You lose!";
+        return true;
+    }
     else {
         result();
         return false;
     }   
+}
+
+void printChances() {
+    std::cout << chances << " chances left." << std::endl;
+}
+
+void subChances() {
+    chances--;
 }
